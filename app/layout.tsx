@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { SWRegister } from './sw-register'
+import { LangProvider } from '@/lib/lang-context'
 
 export const metadata: Metadata = {
   title: 'Surf Judge',
@@ -24,7 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen bg-slate-950 text-white antialiased">
         <SWRegister />
-        {children}
+        <LangProvider>
+          {children}
+        </LangProvider>
         <footer className="fixed bottom-0 left-0 right-0 text-center text-xs text-slate-600 py-1 pointer-events-none">
           Hecho por duendes.app 2026
         </footer>
