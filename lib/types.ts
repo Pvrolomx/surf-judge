@@ -38,3 +38,28 @@ export interface WaveResult {
   computed: number | null     // computed score after eliminating high/low (5j) or avg (3j)
   all_judges_in: boolean
 }
+
+// ─── Tournament types ───────────────────────────────────────────
+export type TournamentFormat = '2-1' // expandible: '3-1', '4-2', '3-1-repechaje'
+
+export interface Tournament {
+  id: string
+  code: string            // 6-char director access code
+  name: string | null
+  surfers: string[]       // master list
+  format: TournamentFormat
+  judge_count: JudgeCount
+  status: 'active' | 'finished'
+  created_at: string
+}
+
+export interface BracketSlot {
+  id: string
+  tournament_id: string
+  round: number           // 1 = first round, 2 = semis, etc.
+  position: number        // slot index within round (0-based)
+  surfer_indices: number[] // indexes into tournament.surfers
+  heat_id: string | null  // linked heat once opened
+  winner_index: number | null // index into tournament.surfers
+  status: 'pending' | 'open' | 'finished'
+}
