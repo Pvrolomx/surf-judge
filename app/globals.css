@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --ocean: #0ea5e9;
+  --ocean-dark: #0284c7;
+  --sand: #f59e0b;
+  --foam: #f0f9ff;
+}
+
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+/* Score input large tap targets */
+.score-btn {
+  min-height: 52px;
+  min-width: 52px;
+  touch-action: manipulation;
+}
+
+/* Slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 8px;
+  background: #334155;
+  border-radius: 4px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  background: var(--ocean);
+  border-radius: 50%;
+  cursor: pointer;
+}
